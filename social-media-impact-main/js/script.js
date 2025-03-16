@@ -57,3 +57,41 @@ function showNextFact() {
 
 // Event listener for the button
 document.getElementById("next-fact").addEventListener("click", showNextFact);
+
+
+// ================================
+// New Feature: User Mood Check
+// ================================
+
+document.addEventListener("DOMContentLoaded", function () {
+    var moodSelect = document.getElementById("mood-select");
+    var moodResponse = document.getElementById("mood-response");
+
+    function checkMood() {
+        var mood = moodSelect.value;
+        var message = "";
+
+        switch (mood) {
+            case "happy":
+                message = "That's great! Social media can be a fun and uplifting place!";
+                break;
+            case "inspired":
+                message = "Awesome! Keep using social media to fuel your creativity!";
+                break;
+            case "anxious":
+                message = "It's okay to take breaks. Try limiting screen time to improve well-being.";
+                break;
+            case "overwhelmed":
+                message = "Remember to unplug when needed. Balance is key!";
+                break;
+            default:
+                message = "";
+        }
+
+        moodResponse.innerText = message;
+    }
+
+    if (moodSelect) {
+        moodSelect.addEventListener("change", checkMood);
+    }
+});
